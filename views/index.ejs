@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>匿名掲示板</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>匿名掲示板</h1>
+
+  <form action="/post" method="POST">
+    <textarea name="content" placeholder="今なにしてる？" required></textarea>
+    <button type="submit">投稿</button>
+  </form>
+
+  <div class="posts">
+    <% posts.forEach(post => { %>
+      <div class="post">
+        <p><%= post.content %></p>
+        <small><%= post.timestamp.toLocaleString() %></small>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
